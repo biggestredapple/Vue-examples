@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+    <title>04 - Events</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/demo.css">
+    <script src="vuejs/vue.js"></script>
+</head>
+<body>
+
+    <div id="app" 
+        :style="{ backgroundColor: `hsl(${x}, 20%, 80%)` }" 
+        v-on:mousemove="coordinate"
+        class="container color-block">
+
+        <div class="row">
+
+            <div class="col-sm-6">
+                <button v-on:click="decrement" class="btn btn-lg btn-primary">-</button>
+                <span class="big">{{ counter }}</span>
+                <button v-on:click="increment" class="btn btn-lg btn-primary">+</button>
+            </div>
+
+            <div class="col-sm-6">
+                <h3> Curseur: {{ x }}, {{ y }} </h3>
+            </div>
+            
+        </div>
+
+    </div>
+
+    <script>
+        var myApp = new Vue({
+
+            el: '#app',
+
+            data: function() {
+                return {
+                    counter: 0,
+                    x: 0,
+                    y: 0,
+                }
+            },
+
+            methods: {
+
+                increment: function() {
+                    this.counter++;
+                },
+                decrement: function() {
+                    this.counter--;
+                },
+                coordinate: function(e) {
+                    this.x = e.clientX;
+                    this.y = e.clientY;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
