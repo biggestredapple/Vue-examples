@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+    <title>02 - Loops</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/demo.css">
+    <script src="vuejs/vue.js"></script>
+</head>
+<body>
+
+    <div id="app" class="container">
+
+        <ul class="list-group">
+            <li v-for="item in items" class="list-group-item">
+                {{ item }}
+            </li>
+        </ul>
+
+    </div>
+
+    <script>
+        var myApp = new Vue({
+            el: '#app',
+            data: {
+                items: [
+                    'John Doe',
+                    'Bob Tremblay',
+                    'Jane Doe',
+                    'Mr. Foo Bar'
+                ]
+            }
+        });
+    </script>
+</body>
+</html>
