@@ -1,1 +1,2 @@
-# VueJS 2 Introduction by examples
+# VueJS 2 - Introduction examples
+
