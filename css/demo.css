@@ -14,7 +14,7 @@ body {
     clear:both;
 }
 
-.menu h1 {
+.menu h1, .menu h2 {
     position:absolute;
     left:0;
     right:0;

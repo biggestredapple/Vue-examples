@@ -11,7 +11,7 @@
     <div class="menu">
         <a href="03-dynamic-binding.html">03 - Dynamic binding</a>
         <h1>04 - Events</h1>
-        <a href="#">03 - Dynamic binding</a>
+        <a href="05-components.html">05 - Components</a>
     </div>
     
     <div id="app" 
@@ -25,6 +25,12 @@
                 <button v-on:click="decrement" class="btn btn-lg btn-primary">-</button>
                 <span class="big">{{ counter }}</span>
                 <button v-on:click="increment" class="btn btn-lg btn-primary">+</button>
+
+                <br><br><br>
+
+                <button v-on:click="qty > 0 ? qty -= 1 : 0" class="btn btn-lg btn-primary">-</button>
+                <span class="big">Quantity: {{ qty }}</span>
+                <button v-on:click="qty += 1" class="btn btn-lg btn-primary">+</button>
             </div>
 
             <div class="col-sm-6">
@@ -43,6 +49,7 @@
             data: function() {
                 return {
                     counter: 0,
+                    qty: 0,
                     x: 0,
                     y: 0,
                 }

@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+    <title>04 - Components</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/demo.css">
+    <script src="vuejs/vue.js"></script>
+</head>
+<body class="container">
+
+    <div class="menu">
+        <a href="04-events.html">04 - Events</a>
+        <h1>05 - Components</h1>
+        <a href="06-components-state-vs-static-value.html">06 - Components / State vs Static value</a>
+    </div>
+    
+    <div id="app">
+
+        <custom-block :text="message1"></custom-block>
+        <custom-block :text="message2"></custom-block>
+
+    </div>
+
+    <script>
+
+        Vue.component('custom-block', {
+            props: ['text'],
+            template: `<h4>{{ text }}<h4>`
+        });
+
+        var myApp = new Vue({
+
+            el: '#app',
+
+            data: function() {
+                return {
+                    message1: "Hello there! How are you?",
+                    message2: "My name is FooBar",
+                }
+            }
+        });
+    </script>
+</body>
+</html>

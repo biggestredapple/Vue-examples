@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+    <title>04 - Components</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/demo.css">
+    <script src="vuejs/vue.js"></script>
+</head>
+<body class="container">
+
+    <div class="menu">
+        <a href="05-components.html">05 - Components</a>
+        <h2>06 - Components / State vs static value</h2>
+        <a href="07-components-state-vs-static-value.html">06 - Components / State vs static value</a>
+    </div>
+    
+    <div id="app">
+
+        <div id="app" class="text-center">
+            <h3>
+                <button v-on:click="increment" class="btn btn-info">+</button>
+                Adjust the state
+                <button @click="decrement" class="btn btn-info">-</button>
+            </h3>
+            <h2>This is the app state: <span class="text-danger">{{ count }}</span></h2>
+            <hr>
+            <h4><child count="1"></child></h4> 
+            <p>This is a child counter that is using a static integer as props</p>
+            <hr>
+            <h4><child :count="count"></child></h4>
+            <p>This is the same child counter and it is using the state as props</p>
+        </div>
+
+    </div>
+
+    <script>
+
+        Vue.component('child', {
+            props: { 
+                count: {
+                    type: Number,
+                    required: true
+                    }
+            },
+            template: `<div class="text-danger">{{ count }}</div>`
+        });
+
+        var myApp = new Vue({
+
+            el: '#app',
+
+            data: function() {
+                return {
+                    count: 0
+                }
+            },
+
+            methods: {
+                increment() {
+                    this.count++;
+                },
+                decrement() {
+                    this.count--;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
