@@ -6,12 +6,18 @@
     <link rel="stylesheet" href="css/demo.css">
     <script src="vuejs/vue.js"></script>
 </head>
-<body>
+<body class="container">
 
+    <div class="menu">
+        <a href="03-dynamic-binding.html">03 - Dynamic binding</a>
+        <h1>04 - Events</h1>
+        <a href="#">03 - Dynamic binding</a>
+    </div>
+    
     <div id="app" 
-        :style="{ backgroundColor: `hsl(${x}, 20%, 80%)` }" 
+        :style="{ backgroundColor: `hsl(${x}, 30%, 80%)` }" 
         v-on:mousemove="coordinate"
-        class="container color-block">
+        class="color-block">
 
         <div class="row">
 
@@ -24,7 +30,7 @@
             <div class="col-sm-6">
                 <h3> Curseur: {{ x }}, {{ y }} </h3>
             </div>
-            
+
         </div>
 
     </div>
