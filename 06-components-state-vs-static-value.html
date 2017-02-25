@@ -11,16 +11,16 @@
     <div class="menu">
         <a href="05-components.html">05 - Components</a>
         <h2>06 - Components / State vs static value</h2>
-        <a href="07-components-state-vs-static-value.html">06 - Components / State vs static value</a>
+        <a href="07-components-template.html">07 - Components / Template</a>
     </div>
     
     <div id="app">
 
         <div id="app" class="text-center">
             <h3>
-                <button v-on:click="increment" class="btn btn-info">+</button>
-                Adjust the state
                 <button @click="decrement" class="btn btn-info">-</button>
+                Adjust the state
+                <button v-on:click="increment" class="btn btn-info">+</button>
             </h3>
             <h2>This is the app state: <span class="text-danger">{{ count }}</span></h2>
             <hr>
