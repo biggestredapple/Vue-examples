@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+    <title>04 - Components</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/demo.css">
+    <script src="vuejs/vue.js"></script>
+</head>
+<body class="container">
+
+    <div class="menu">
+        <a href="07-components-template.html">07 - Components / Template</a>
+        <h2>08 - Components / Slots</h2>
+        <!-- <a href="08-components-slots">08 - Components / Slots</a> -->
+    </div>
+    
+    <div id="app">
+        <h2>We can use slots to populate content</h2>
+        <app-child>
+            <h3>This is slot number one</h3>
+        </app-child>
+        <app-child>
+            <h3>This is slot number two</h3>
+            <small>I can put more info in, too!</small>
+        </app-child>
+    </div>
+
+
+    <script type="text/x-template" id="childarea">
+        <div class="child">
+            <slot></slot>
+            <p>It's a veritable slot machine!<br> 
+            Ha ha aw</p>
+        </div>
+    </script>
+
+
+    <script>
+
+        var Child = {
+            template: '#childarea'
+        };
+
+        var myApp = new Vue({
+            el: '#app',
+            components: {
+                appChild: Child
+            }
+        });
+
+    </script>
+    
+</body>
+</html>
