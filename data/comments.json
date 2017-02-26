@@ -1,0 +1,19 @@
+{
+    "comments": [
+        {
+            "name" : "John Doe",
+            "time" : "17 mins ago",
+            "msg"  : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis voluptates, quisquam alias amet deserunt nostrum tenetur non ut accusantium ratione impedit nulla vitae velit at, voluptatem rem nisi itaque repudiandae!"
+        },
+        {
+            "name" : "Foobar",
+            "time" : "2 days ago",
+            "msg"  : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis voluptates, quisquam alias amet deserunt nostrum tenetur non ut accusantium ratione impedit nulla vitae velit at, voluptatem rem nisi itaque repudiandae!"
+        },
+        {
+            "name" : "Jane Doo",
+            "time" : "9 days ago",
+            "msg"  : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis voluptates, quisquam alias amet deserunt nostrum tenetur non ut accusantium ratione impedit nulla vitae velit at, voluptatem rem nisi itaque repudiandae!"
+        }
+    ]
+}

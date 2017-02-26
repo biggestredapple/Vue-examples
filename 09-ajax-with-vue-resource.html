@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+<head>
+    <title>09 - Ajax with vue-resource</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/demo.css">
+    <script src="vuejs/vue.js"></script>
+    <script src="vuejs/vue-resource.min.js"></script>
+</head>
+<body class="container">
+
+    <div class="menu">
+        <a href="07-components-template.html">08 - Components / Slots</a>
+        <h2>09 - Ajax with vue-resource</h2>
+    </div>
+    
+    <div id="app">
+        
+
+        <div class="media" v-for="comment in comments">
+            <comment-block 
+                :name="comment.name" 
+                :time="comment.time"
+                :msg="comment.msg"
+            ></comment-block>
+        </div>
+
+        <div class="clear"></div>
+        <br>
+
+        <button v-on:click="loadCommentsDelayed" class="btn btn-primary">Load more comments</button>
+        <img v-if="loading" src="img/progress.gif" width="50px">
+
+    </div>
+
+
+    <script type="text/x-template" id="comment-block">
+
+        <div>
+            <div class="media-left media-middle">
+                <a href="#">
+                    <img class="media-object" src="img/none.jpg" alt="...">
+                </a>
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">
+                    {{ name }} <small>{{ time }}</small>
+                </h4>
+                <p>{{ msg }}</p>
+            </div>
+        </div>
+
+    </script>
+
+
+    <script>
+
+        Vue.component('comment-block', {
+            props: [
+                'name', 'time', 'msg'
+            ],
+            template: '#comment-block'
+        });
+
+        var myApp = new Vue({
+            el: '#app',
+            data: {
+                loading: false,
+                comments: [],
+            },
+            methods: {
+
+                //for demo purpose
+                //make loading image visible
+                loadCommentsDelayed: function() {
+              
+                    
+                    var $this = this;
+                    this.loading = true;
+
+                    setTimeout(function() { 
+                        $this.loadComments();
+                    }, 1000);
+                },
+
+                //load comments
+                loadComments: function() {
+
+                    this.loading = true;
+
+                    this.$http.get('data/comments.json').then(response => {
+
+                        // get body data
+                        this.comments = this.comments.concat(response.body.comments);
+
+                        this.loading = false;
+
+                        //console.log(response);
+
+                    }, response => {
+                        // error callback
+                        this.loading = false;
+                    });
+                },
+            }
+        });
+
+    </script>
+    
+</body>
+</html>
