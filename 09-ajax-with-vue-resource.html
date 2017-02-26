@@ -15,8 +15,7 @@
     </div>
     
     <div id="app">
-        
-
+                
         <div class="media" v-for="comment in comments">
             <comment-block 
                 :name="comment.name" 
@@ -25,11 +24,14 @@
             ></comment-block>
         </div>
 
+
         <div class="clear"></div>
         <br>
 
         <button v-on:click="loadCommentsDelayed" class="btn btn-primary">Load more comments</button>
-        <img v-if="loading" src="img/progress.gif" width="50px">
+        <transition name="fade">
+            <img v-if="loading" src="img/progress.gif" width="50px">
+        </transition>
 
     </div>
 
