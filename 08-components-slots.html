@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-    <title>04 - Components</title>
+    <title>08 - Components / Slots</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/demo.css">
     <script src="vuejs/vue.js"></script>
@@ -11,10 +11,12 @@
     <div class="menu">
         <a href="07-components-template.html">07 - Components / Template</a>
         <h2>08 - Components / Slots</h2>
-        <!-- <a href="08-components-slots">08 - Components / Slots</a> -->
+        <a href="09-ajax-with-vue-resource.html">09 - Ajax with vue-resource</a>
     </div>
     
     <div id="app">
+
+
         <h2>We can use slots to populate content</h2>
         <app-child>
             <h3>This is slot number one</h3>
@@ -23,6 +25,18 @@
             <h3>This is slot number two</h3>
             <small>I can put more info in, too!</small>
         </app-child>
+
+        <hr>
+        Mutiple slots
+        <app-child2>
+            <h3 slot="title">This is slot title</h3>
+            <p slot="description">This is slot description</p>
+        </app-child2>
+
+        <app-child2>
+            <h3 slot="title">This is slot title without description</h3>
+        </app-child2>
+
     </div>
 
 
@@ -35,16 +49,30 @@
     </script>
 
 
+    <script type="text/x-template" id="childarea2">
+        <div class="child">
+            <slot name="title"></slot>
+            <slot name="description"></slot>
+            <i>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores officia molestiae, nemo praesentium deleniti, fugit sit dolorem expedita officiis consequatur ut sunt laboriosam aut qui necessitatibus harum, aliquam molestias accusantium.</i>
+        </div>
+    </script>
+
+
     <script>
 
-        var Child = {
+        var child = {
             template: '#childarea'
+        };
+
+        var child2 = {
+            template: '#childarea2'
         };
 
         var myApp = new Vue({
             el: '#app',
             components: {
-                appChild: Child
+                appChild: child,
+                appChild2: child2
             }
         });
 
